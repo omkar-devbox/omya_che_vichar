@@ -136,13 +136,17 @@ function App() {
   }
 
   const saveAnswersToServer = async (payload: object) => {
-    try {
-      await fetch('/api/save-answers', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      })
-    } catch {}
+    // Only call local Vite dev server API when running locally to avoid 405 on static GitHub Pages
+    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    if (isLocal) {
+      try {
+        await fetch('/api/save-answers', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        })
+      } catch {}
+    }
   }
 
   useEffect(() => {
