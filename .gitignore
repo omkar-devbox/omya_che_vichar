@@ -1,0 +1,13 @@
+# Dependencies
+node_modules
+
+# Production build
+dist
+dist-ssr
+
+# Local environment & IDE files
+.DS_Store
+*.local
+.vscode
+.idea
+*.tsbuildinfo
