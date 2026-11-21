@@ -51,5 +51,6 @@ function saveAnswersPlugin() {
     };
 }
 export default defineConfig({
+    base: '/omya_che_vichar/',
     plugins: [react(), saveAnswersPlugin()]
 });
